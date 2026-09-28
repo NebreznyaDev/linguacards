@@ -79,76 +79,11 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
   .review-controls button { width:100%; min-height:50px; }
 }
 
-/* ===== FINAL RESPONSIVE / TOUCH LAYOUT ===== */
-html { width:100%; overflow-x:hidden; }
-body { width:100%; overflow-x:hidden; }
-button, input, select { font:inherit; }
-.upload-buttons { margin-top:-6px; margin-bottom:18px; }
-.secondary-upload-button {
-  border:1px solid #ddd; background:#f7f7f7; color:#222; border-radius:12px;
-  min-height:44px; padding:0 14px; font-weight:600; cursor:pointer;
-}
-.secondary-upload-button:active { transform:scale(.98); }
-@media (max-width:800px) {
-  header { height:auto; min-height:64px; padding:0 18px; }
-  .container { width:min(94%,700px); padding:30px 0 70px; }
-  .workspace { grid-template-columns:1fr; gap:28px; }
-  .panel { max-width:none; }
-  .preview-section { order:-1; }
-  .card-container,.review-card-container { width:min(430px,100%); height:min(500px,112vw); min-height:360px; margin:0 auto; }
-  .dictionary-panel { margin-top:45px; }
-}
-@media (max-width:600px) {
-  header { padding:calc(8px + env(safe-area-inset-top)) 12px 8px; }
-  .logo { font-size:19px; }
-  .nav { gap:4px; }
-  .nav button { padding:10px 11px; font-size:13px; min-height:42px; }
-  .container { width:100%; padding:24px 12px calc(70px + env(safe-area-inset-bottom)); }
-  .hero { margin-bottom:26px; }
-  .hero h1 { font-size:clamp(34px,10vw,42px); line-height:1.02; letter-spacing:-2px; }
-  .hero p { font-size:15px; line-height:1.45; padding:0 8px; }
-  .panel,.dictionary-panel { padding:16px; border-radius:20px; }
-  .panel h2,.dictionary-panel h2 { font-size:19px; margin-bottom:17px; }
-  .upload { height:min(62vw,260px); min-height:180px; margin-bottom:10px; }
-  .upload-content { font-size:14px; padding:20px; }
-  .upload-buttons { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
-  .secondary-upload-button { width:100%; min-height:48px; font-size:14px; }
-  input[type=text],.search,.category-select { height:52px; font-size:16px; }
-  .keyboard-row { gap:6px; }
-  .keyboard-row button { flex:1; width:auto; min-width:0; min-height:46px; height:46px; font-size:17px; }
-  .create-button,.next-button { min-height:52px; height:52px; }
-  .section { margin-top:42px; }
-  .cards-header { margin-bottom:15px; }
-  .cards-header h2 { font-size:19px; }
-  .repeat-button { width:100%; height:48px; }
-  .saved-card { padding:10px; gap:10px; border-radius:15px; }
-  .saved-card.selected { padding:9px; }
-  .saved-card img { width:58px; height:58px; border-radius:10px; }
-  .saved-word { font-size:15px; }
-  .delete { padding:8px 9px; font-size:12px; }
-  .checkbox { width:24px; height:24px; }
-  .card-container,.review-card-container { width:min(88vw,360px); height:min(118vw,470px); min-height:360px; }
-  .card-face,.review-face { border-radius:22px; }
-  .back,.review-back { padding:24px; }
-  .word,.review-word { font-size:clamp(34px,10vw,52px); letter-spacing:-1.5px; }
-  .review-buttons { flex-direction:column; gap:8px; }
-  .review-buttons button { width:100%; min-height:50px; }
-  .dictionary-panel { margin-top:0; }
-  .dictionary-controls { grid-template-columns:1fr; gap:8px; }
-  .word-list { max-height:none; overflow:visible; }
-  .dictionary-word { grid-template-columns:minmax(0,1fr) auto auto; gap:8px; padding:12px 10px; }
-  .word-main { font-size:15px; word-break:break-word; }
-  .word-ru { font-size:12px; text-align:right; max-width:35vw; }
-  .add-word { width:44px; height:44px; flex-shrink:0; }
-}
-@media (max-width:380px) {
-  .nav button { padding:9px 8px; font-size:12px; }
-  .saved-card img { width:50px; height:50px; }
-  .delete { padding:7px; }
-  .word-ru { display:none; }
-}
-
+.auth-box{max-width:620px;margin:0 auto 34px;background:#fff;border:1px solid #e5e5e5;border-radius:20px;padding:18px 20px;box-shadow:0 8px 28px rgba(0,0,0,.035)}
+.auth-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.auth-row input{flex:1 1 180px;height:44px;border:1px solid #ddd;border-radius:11px;padding:0 12px;font-size:14px;outline:none}.auth-row input:focus{border-color:#111}.auth-btn{height:44px;border:0;border-radius:11px;padding:0 15px;background:#171717;color:#fff;font-weight:600;cursor:pointer}.auth-btn.secondary{background:#eee;color:#222}.auth-btn:disabled{opacity:.5;cursor:not-allowed}.auth-status{margin-top:10px;font-size:13px;color:#777}.auth-user{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.auth-email{font-size:14px;font-weight:600}.auth-note{font-size:13px;color:#777;margin-bottom:10px}
+@media(max-width:600px){.auth-box{padding:15px;margin-bottom:24px}.auth-row{display:grid;grid-template-columns:1fr 1fr}.auth-row input{width:100%;min-width:0}.auth-row input:first-child{grid-column:1/-1}.auth-btn{width:100%}.auth-user{align-items:stretch}.auth-user .auth-btn{width:auto}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -167,6 +102,25 @@ button, input, select { font:inherit; }
   <p>Создавай свои языковые карточки и учи иностранные слова.</p>
 </section>
 
+<section class="auth-box" id="authBox">
+  <div id="authLoggedOut">
+    <div class="auth-note">Войди или создай аккаунт, чтобы карточки сохранялись между устройствами.</div>
+    <div class="auth-row">
+      <input id="authEmail" type="email" placeholder="Email" autocomplete="email">
+      <input id="authPassword" type="password" placeholder="Пароль" autocomplete="current-password">
+      <button class="auth-btn" onclick="signIn()">Войти</button>
+      <button class="auth-btn secondary" onclick="signUp()">Регистрация</button>
+    </div>
+  </div>
+  <div id="authLoggedIn" style="display:none;">
+    <div class="auth-user">
+      <div><div class="auth-email" id="authUserEmail"></div><div class="auth-status">Карточки синхронизируются с аккаунтом.</div></div>
+      <button class="auth-btn secondary" onclick="signOut()">Выйти</button>
+    </div>
+  </div>
+  <div class="auth-status" id="authStatus"></div>
+</section>
+
 <div id="createSection">
 
 <div class="workspace">
@@ -175,19 +129,14 @@ button, input, select { font:inherit; }
 <h2>Новая карточка</h2>
 
 <label>Изображение</label>
-<div class="upload" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+<div class="upload" onclick="document.getElementById('fileInput').click()">
   <div class="upload-content" id="uploadContent">
     <div class="upload-icon">＋</div>
     <div>Нажми, чтобы добавить фото</div>
   </div>
   <img id="preview" alt="Предпросмотр">
 </div>
-<div class="upload-buttons">
-  <button type="button" class="secondary-upload-button" onclick="event.stopPropagation();document.getElementById('fileInput').click()">Выбрать фото</button>
-  <button type="button" class="secondary-upload-button" onclick="event.stopPropagation();document.getElementById('cameraInput').click()">Сделать фото</button>
-</div>
 <input type="file" id="fileInput" accept="image/*">
-<input type="file" id="cameraInput" accept="image/*" capture="environment">
 
 <label>Иностранное слово</label>
 <input type="text" id="wordInput" placeholder="Например: jabuka" autocomplete="off">
@@ -301,13 +250,137 @@ function escapeHTML(text) {
   return div.innerHTML;
 }
 
+// ===== SUPABASE =====
+// ВСТАВЬ СЮДА свои данные из Supabase: Project URL и Publishable key.
+const SUPABASE_URL = "https://tdutmgvcxqxckxvyqvud.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_UvuJJEYdjlGBaBnsyepeow_-ZGumEVy";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+let savedCardsCache = [];
+let currentUser = null;
+
 function getSavedCards() {
-  return JSON.parse(localStorage.getItem("linguaCards") || "[]");
+  return savedCardsCache;
 }
 
 function setSavedCards(cards) {
-  localStorage.setItem("linguaCards", JSON.stringify(cards));
+  savedCardsCache = Array.isArray(cards) ? cards : [];
 }
+
+function setAuthStatus(message, isError=false) {
+  const el = document.getElementById("authStatus");
+  el.textContent = message || "";
+  el.style.color = isError ? "#b42318" : "#777";
+}
+
+function updateAuthUI() {
+  const loggedOut = document.getElementById("authLoggedOut");
+  const loggedIn = document.getElementById("authLoggedIn");
+  const email = document.getElementById("authUserEmail");
+  if (currentUser) {
+    loggedOut.style.display = "none";
+    loggedIn.style.display = "block";
+    email.textContent = currentUser.email || "Аккаунт";
+  } else {
+    loggedOut.style.display = "block";
+    loggedIn.style.display = "none";
+    email.textContent = "";
+  }
+}
+
+async function loadCardsFromSupabase() {
+  if (!currentUser) {
+    savedCardsCache = [];
+    selectedCards = [];
+    renderCards();
+    renderDictionary();
+    return;
+  }
+
+  const { data, error } = await supabaseClient
+    .from("linguaCards")
+    .select("id, word, image, created_at")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error(error);
+    setAuthStatus("Не удалось загрузить карточки: " + error.message, true);
+    return;
+  }
+
+  savedCardsCache = data || [];
+  selectedCards = [];
+  renderCards();
+  renderDictionary();
+}
+
+async function signUp() {
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  if (!email || !password) {
+    setAuthStatus("Введи email и пароль.", true);
+    return;
+  }
+  if (password.length < 6) {
+    setAuthStatus("Пароль должен содержать минимум 6 символов.", true);
+    return;
+  }
+
+  setAuthStatus("Создаём аккаунт...");
+  const { data, error } = await supabaseClient.auth.signUp({ email, password });
+  if (error) {
+    setAuthStatus(error.message, true);
+    return;
+  }
+
+  if (data.session) {
+    setAuthStatus("Аккаунт создан.");
+  } else {
+    setAuthStatus("Аккаунт создан. Проверь почту и подтверди email, затем войди.");
+  }
+}
+
+async function signIn() {
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  if (!email || !password) {
+    setAuthStatus("Введи email и пароль.", true);
+    return;
+  }
+
+  setAuthStatus("Входим...");
+  const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if (error) {
+    setAuthStatus(error.message, true);
+    return;
+  }
+
+  currentUser = data.user;
+  updateAuthUI();
+  setAuthStatus("Вход выполнен.");
+  await loadCardsFromSupabase();
+}
+
+async function signOut() {
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) {
+    setAuthStatus(error.message, true);
+    return;
+  }
+  currentUser = null;
+  savedCardsCache = [];
+  selectedCards = [];
+  updateAuthUI();
+  renderCards();
+  renderDictionary();
+  setAuthStatus("Вы вышли из аккаунта.");
+}
+
+supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+  currentUser = session?.user || null;
+  updateAuthUI();
+  await loadCardsFromSupabase();
+});
 
 function getWordKey(word) {
   return normalize(word.sr + "|" + word.latin + "|" + word.ru);
@@ -343,21 +416,7 @@ document.getElementById("fileInput").addEventListener("change", function(event) 
   reader.readAsDataURL(file);
 });
 
-document.getElementById("cameraInput").addEventListener("change", function(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    selectedImage = e.target.result;
-    const preview = document.getElementById("preview");
-    preview.src = selectedImage;
-    preview.style.display = "block";
-    document.getElementById("uploadContent").style.display = "none";
-  };
-  reader.readAsDataURL(file);
-});
-
-function createCard() {
+async function createCard() {
   const word = document.getElementById("wordInput").value.trim();
   if (!selectedImage) {
     alert("Сначала добавь изображение.");
@@ -367,25 +426,45 @@ function createCard() {
     alert("Напиши слово.");
     return;
   }
+  if (!currentUser) {
+    alert("Сначала войди или создай аккаунт.");
+    return;
+  }
 
   document.getElementById("cardImage").src = selectedImage;
   document.getElementById("cardImage").style.display = "block";
   document.getElementById("emptyCard").style.display = "none";
   document.getElementById("cardWord").textContent = word;
 
-  saveCard(selectedImage, word);
+  await saveCard(selectedImage, word);
 }
 
 function flipCard() {
   document.getElementById("card").classList.toggle("flipped");
 }
 
-function saveCard(image, word) {
-  const cards = getSavedCards();
-  cards.push({image, word});
-  setSavedCards(cards);
+async function saveCard(image, word) {
+  if (!currentUser) {
+    alert("Сначала войди или создай аккаунт.");
+    return false;
+  }
+
+  const { data, error } = await supabaseClient
+    .from("linguaCards")
+    .insert({ word, image })
+    .select("id, word, image, created_at")
+    .single();
+
+  if (error) {
+    console.error(error);
+    alert("Не удалось сохранить карточку: " + error.message);
+    return false;
+  }
+
+  savedCardsCache.unshift(data);
   renderCards();
   renderDictionary();
+  return true;
 }
 
 function renderCards() {
@@ -474,12 +553,25 @@ function stopReview() {
   document.getElementById("reviewMode").classList.remove("active");
 }
 
-function deleteCard(event,index) {
+async function deleteCard(event,index) {
   event.stopPropagation();
   const cards = getSavedCards();
-  cards.splice(index,1);
+  const card = cards[index];
+  if (!card || !currentUser) return;
+
+  const { error } = await supabaseClient
+    .from("linguaCards")
+    .delete()
+    .eq("id", card.id);
+
+  if (error) {
+    console.error(error);
+    alert("Не удалось удалить карточку: " + error.message);
+    return;
+  }
+
+  savedCardsCache.splice(index,1);
   selectedCards = selectedCards.filter(i => i !== index).map(i => i > index ? i-1 : i);
-  setSavedCards(cards);
   renderCards();
   renderDictionary();
 }
@@ -555,9 +647,18 @@ document.getElementById("dictionarySearch").addEventListener("keydown", e => {
   }
 });
 
+savedCardsCache = [];
 renderCards();
 setupCategories();
 renderDictionary();
+
+// Проверяем уже сохранённую сессию Supabase.
+(async function initAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+  currentUser = data.session?.user || null;
+  updateAuthUI();
+  await loadCardsFromSupabase();
+})();
 </script>
 </body>
 </html>
